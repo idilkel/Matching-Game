@@ -1,0 +1,155 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Kavoon&display=swap");
+/* @import "https://fonts.googleapis.com/css?family=Kavoon"; */
+
+html {
+  font-family: Kavoon, Roboto, Rubik, "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* background: -webkit-linear-gradient(top, #f87474, lightpink); */
+  background-image: url("assets/sand-background.jpg");
+  height: 100%;
+  color: rgb(86, 76, 23);
+}
+
+.game-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  font-family: "Kavoon", cursive;
+}
+
+.header {
+  grid-column: 4/9;
+  grid-row: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: -webkit-linear-gradient(top, #f2994a, #f2c54b);
+  font-family: "Kavoon", cursive;
+}
+
+.board {
+  grid-column: 2/11;
+  grid-row: 3/11;
+  border: 3px solid rgb(134, 31, 55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.credentials {
+  grid-column: 1/13;
+  grid-row: 12/13;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  background: -webkit-linear-gradient(top, #f2994a, #f2c54b);
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin: 0 auto;
+  background-color: #f9d923;
+  border: 1px solid gray;
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+td {
+  border: 2px solid #187498;
+  padding: 8px;
+  text-align: center;
+  min-height: 120px;
+  min-width: 150px;
+  background-image: url("assets/wood-background.jpg");
+}
+
+.card {
+  /* border: 1px solid #f1f1f1; */
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  height: 120px;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.flipped {
+  background-image: url("/assets/marble-background.jpg");
+}
+
+.flipped img {
+  visibility: hidden;
+}
+
+.finish {
+  grid-column: 4/9;
+  grid-row: 5/9;
+  border: 3px solid #cd9d25;
+  z-index: 10;
+  background-image: url("/assets/confetti-background.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.finish p {
+  margin: 5px;
+  font-size: larger;
+  font-weight: 700;
+}
+
+button {
+  border: 1px solid #345479;
+  background: #345479;
+  border-radius: 10%;
+  color: white;
+  width: 100px;
+  cursor: pointer;
+  position: relative;
+  margin-top: 20px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+button:hover {
+  border: 1px solid #337ab7;
+  background: white;
+  border-radius: 15%;
+  color: #337ab7;
+}
+
+.new-game-container {
+  grid-column: 6/8;
+  grid-row: 11/12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-game {
+  margin: 10px;
+}

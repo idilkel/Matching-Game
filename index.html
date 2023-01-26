@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Matching Game</title>
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="header"><h1>Matching Game</h1></div>
+      <div class="board">
+        <table>
+          <tbody>
+            <tr id="row1">
+              <td id="col1"></td>
+              <td id="col2"></td>
+              <td id="col3"></td>
+              <td id="col4"></td>
+            </tr>
+            <tr id="row2">
+              <td id="col1"></td>
+              <td id="col2"></td>
+              <td id="col3"></td>
+              <td id="col4"></td>
+            </tr>
+            <tr id="row3">
+              <td id="col1"></td>
+              <td id="col2"></td>
+              <td id="col3"></td>
+              <td id="col4"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="finish hidden">
+        <p>Congrats! You did it !!!</p>
+        <p id="total">Total number of moves:</p>
+        <p>Do you want another game?</p>
+        <button onclick="reset()">Reset</button>
+      </div>
+      <div class="new-game-container">
+        <button class="new-game" onclick="reset()">New Game</button>
+      </div>
+      <div class="credentials">
+        &#169; All rights reserved to Idil Kasuto Kelson
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>

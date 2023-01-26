@@ -23,17 +23,7 @@ shuffleArray(images);
 
 console.log(images);
 
-// const placeCards = () => {
-//   let cells = document.getElementsByTagName("td");
-//   for (let i = 0; i < cells.length; i++) {
-//     cells[i].innerHTML = `
-//     <div class="card flipped">
-//     <img src=${images[i]} alt="card" style="width:150px;height:120px;">
-//   </div>`;
-//   }
-// };
-
-// placeCards();
+let startTime;
 
 const placeCards = () => {
   let cells = document.getElementsByTagName("td");
@@ -48,6 +38,7 @@ const placeCards = () => {
       </div>
   </div>`;
   }
+  startTime = new Date().getTime();
 };
 
 placeCards();
@@ -127,7 +118,10 @@ turn();
 
 const finish = () => {
   if (totalNumberOfCards === 0) {
+    let msec = new Date().getTime() - startTime;
+    console.log("Time: " + time);
     console.log("FINISHED");
+    document.getElementById("time").innerHTML += getTimeFromMsec(msec);
     document.getElementById("total").innerHTML += " " + totalMoves;
     document.getElementsByClassName("finish hidden")[0].className =
       "finish visible";
@@ -136,6 +130,8 @@ const finish = () => {
 
 const reset = () => {
   document.getElementsByClassName("finish")[0].className = "finish hidden";
+  document.getElementById("time").innerHTML = "You did it in";
+  document.getElementById("total").innerHTML = "Total number of moves:";
   shuffleArray(images);
   placeCards();
   counter = 0;
@@ -146,4 +142,26 @@ const reset = () => {
   totalNumberOfCards = 12;
   totalMoves = 0;
   turn();
+  startTime = new Date().getTime();
+};
+
+const getTimeFromMsec = (msec) => {
+  let seconds = Math.floor(msec / 1000);
+  let minutes = Math.floor(seconds / 60);
+  let hours = Math.floor(minutes / 60);
+
+  seconds = seconds % 60;
+  minutes = minutes % 60;
+
+  if (hours > 0) {
+    return ` ${hours} hours ${minutes} minutes and ${seconds} seconds.`;
+  } else if (minutes > 0) {
+    if (minutes == 1) {
+      return ` ${minutes} minute and ${seconds} seconds`;
+    } else {
+      return ` ${minutes} minutes and ${seconds} seconds`;
+    }
+  } else {
+    return ` ${seconds} seconds`;
+  }
 };

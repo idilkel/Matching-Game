@@ -153,3 +153,82 @@ button:hover {
 .new-game {
   margin: 10px;
 }
+
+.card-back img,
+.card-front img {
+  width: 150px;
+  height: 120px;
+}
+
+@media only screen and (max-width: 1005px) {
+  .header {
+    grid-column: 2/12;
+    grid-row: 2/3;
+  }
+
+  .board {
+    grid-column: 2/12;
+    grid-row: 4/10;
+  }
+
+  td {
+    min-height: 50px;
+    min-width: 50px;
+    padding: 2px;
+  }
+
+  .card-back img,
+  .card-front img,
+  .card,
+  .card-back,
+  .card-front {
+    width: 100%;
+    height: 100%;
+  }
+
+  .new-game-container {
+    grid-column: 6/8;
+    grid-row: 10/11;
+  }
+
+  table {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .header {
+    grid-column: 2/12;
+    grid-row: 2/3;
+  }
+
+  .board {
+    grid-column: 1/13;
+    grid-row: 4/10;
+    height: 70%;
+  }
+
+  td {
+    min-height: 50px;
+    min-width: 50px;
+    padding: 2px;
+  }
+
+  .card-back img,
+  .card-front img,
+  .card,
+  .card-back,
+  .card-front {
+    width: 100%px;
+    height: 100%px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .new-game-container {
+    grid-column: 6/8;
+    grid-row: 10/11;
+  }
+}

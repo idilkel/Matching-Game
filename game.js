@@ -31,10 +31,10 @@ const placeCards = () => {
     cells[i].innerHTML = `     
     <div class="card" id="card${i}">
       <div class="card-back visible" >
-        <img src="/assets/marble-background.jpg" alt="flipped card" style="width:150px;height:120px;">
+        <img src="/assets/marble-background.jpg" alt="flipped card" >
       </div>
       <div class="card-front hidden">
-      <img src=${images[i]} alt="card" style="width:150px;height:120px;">
+      <img src=${images[i]} alt="card" >
       </div>
   </div>`;
   }

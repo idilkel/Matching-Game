@@ -33,6 +33,8 @@ let startTime;
 const selectValue = () => {
   arrLength = +document.getElementById("select_id").value;
   // alert(typeof arrLength + " " + arrLength);
+  totalNumberOfCards = arrLength;
+  console.log("arrLength: " + arrLength);
   if (arrLength === 12) {
     arr = arr12;
     document.getElementById("table-12cards").className = "visible";
@@ -42,7 +44,6 @@ const selectValue = () => {
     document.getElementById("table-12cards").className = "hidden";
     document.getElementById("table-24cards").className = "visible";
   }
-  totalNumberOfCards = arrLength;
   images = arr.concat(arr);
   console.log("Array length is " + images.length);
   shuffleArray(images);
@@ -188,12 +189,13 @@ const reset = () => {
   document.getElementsByClassName("new-game")[0].innerHTML = "Start";
   shuffleArray(images);
   placeCards();
+  console.log(images);
+  totalNumberOfCards = arrLength;
   counter = 0;
   card1 = "";
   card2 = "";
   cardId1 = 0;
   cardId2 = 0;
-  totalNumberOfCards = 12;
   totalMoves = 0;
   turn();
   startTime = new Date().getTime();

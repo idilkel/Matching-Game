@@ -9,7 +9,18 @@
   </head>
   <body>
     <div class="game-container">
-      <div class="header"><h1>Matching Game</h1></div>
+      <div class="header">
+        <h1>Matching Game</h1>
+      </div>
+      <div id="select-container">
+        <form id="number-of-cards">
+          <p>Cards</p>
+          <select id="select_id" onchange="selectValue()">
+            <option value="12">12</option>
+            <option value="24">24</option>
+          </select>
+        </form>
+      </div>
       <div class="board">
         <table id="table-12cards" class="visible">
           <tbody>
@@ -40,36 +51,32 @@
               <td class="col2"></td>
               <td class="col3"></td>
               <td class="col4"></td>
+              <td class="col5"></td>
+              <td class="col6"></td>
             </tr>
             <tr id="row2b">
               <td class="col1"></td>
               <td class="col2"></td>
               <td class="col3"></td>
               <td class="col4"></td>
+              <td class="col5"></td>
+              <td class="col6"></td>
             </tr>
             <tr id="row3b">
               <td class="col1"></td>
               <td class="col2"></td>
               <td class="col3"></td>
               <td class="col4"></td>
+              <td class="col5"></td>
+              <td class="col6"></td>
             </tr>
             <tr id="row4b">
               <td class="col1"></td>
               <td class="col2"></td>
               <td class="col3"></td>
               <td class="col4"></td>
-            </tr>
-            <tr id="row5b">
-              <td class="col1"></td>
-              <td class="col2"></td>
-              <td class="col3"></td>
-              <td class="col4"></td>
-            </tr>
-            <tr id="row6b">
-              <td class="col1"></td>
-              <td class="col2"></td>
-              <td class="col3"></td>
-              <td class="col4"></td>
+              <td class="col5"></td>
+              <td class="col6"></td>
             </tr>
           </tbody>
         </table>
@@ -82,7 +89,7 @@
         <button onclick="reset()">Reset</button>
       </div>
       <div class="new-game-container">
-        <button class="new-game" onclick="reset()">New Game</button>
+        <button class="new-game" onclick="reset()">Start</button>
       </div>
       <div class="credentials">
         &#169; All rights reserved to Idil Kasuto Kelson

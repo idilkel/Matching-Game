@@ -1,4 +1,7 @@
-let arr = [
+let arrLength = 12;
+let totalNumberOfCards = arrLength;
+
+let arr12 = [
   "/assets/binary.jpg",
   "/assets/headphones.jpg",
   "/assets/html.jpg",
@@ -7,29 +10,76 @@ let arr = [
   "/assets/screen.png",
 ];
 
-let images = arr.concat(arr);
+let arr24 = [
+  "/assets/binary.jpg",
+  "/assets/headphones.jpg",
+  "/assets/html.jpg",
+  "/assets/laptop.jpg",
+  "/assets/phone.png",
+  "/assets/screen.png",
+  "/assets/cat.jpg",
+  "/assets/chick.jpg",
+  "/assets/dog.jpg",
+  "/assets/elephant.jpg",
+  "/assets/parrot.jpg",
+  "/assets/turtle.jpg",
+];
 
-const shuffleArray = (arr) => {
-  for (var i = arr.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+let arr = arr12;
+
+let images;
+let startTime;
+
+const selectValue = () => {
+  arrLength = +document.getElementById("select_id").value;
+  // alert(typeof arrLength + " " + arrLength);
+  if (arrLength === 12) {
+    arr = arr12;
+    document.getElementById("table-12cards").className = "visible";
+    document.getElementById("table-24cards").className = "hidden";
+  } else {
+    arr = arr24;
+    document.getElementById("table-12cards").className = "hidden";
+    document.getElementById("table-24cards").className = "visible";
   }
-  return arr;
+  totalNumberOfCards = arrLength;
+  images = arr.concat(arr);
+  console.log("Array length is " + images.length);
+  shuffleArray(images);
+  console.log(images);
+  placeCards();
+  turn();
+};
+
+images = arr.concat(arr);
+console.log(images);
+
+const shuffleArray = (arrayIn) => {
+  for (var i = arrayIn.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = arrayIn[i];
+    arrayIn[i] = arrayIn[j];
+    arrayIn[j] = temp;
+  }
+  return arrayIn;
 };
 
 shuffleArray(images);
 
-console.log(images);
-
-let startTime;
-
 const placeCards = () => {
-  let cells = document.getElementsByTagName("td");
-  for (let i = 0; i < cells.length; i++) {
+  let tableEl;
+  let idSuffix;
+  if (arrLength === 12) {
+    tableEl = document.getElementById("table-12cards");
+    idSuffix = "a";
+  } else {
+    tableEl = document.getElementById("table-24cards");
+    idSuffix = "b";
+  }
+  let cells = tableEl.getElementsByTagName("td");
+  for (let i = 0; i < images.length; i++) {
     cells[i].innerHTML = `     
-    <div class="card" id="card${i}">
+    <div class="card" id="card${i}${idSuffix}">
       <div class="card-back visible" >
         <img src="/assets/marble-background.jpg" alt="flipped card" >
       </div>
@@ -38,7 +88,6 @@ const placeCards = () => {
       </div>
   </div>`;
   }
-  startTime = new Date().getTime();
 };
 
 placeCards();
@@ -48,14 +97,18 @@ let card1 = "";
 let card2 = "";
 let cardId1 = 0;
 let cardId2 = 0;
-let totalNumberOfCards = 12;
 let totalMoves = 0;
 
 const turn = () => {
   let cards = document.getElementsByClassName("card");
+  startTime = new Date().getTime();
+  console.log(new Date());
 
   for (let i = 0; i < cards.length; i++) {
     cards[i].onclick = function () {
+      if (i === 0) {
+        document.getElementsByClassName("new-game")[0].innerHTML = "Restart";
+      }
       if (counter < 2) {
         console.log(" was clicked");
         let backElement = cards[i].getElementsByClassName("card-back")[0];
@@ -132,6 +185,7 @@ const reset = () => {
   document.getElementsByClassName("finish")[0].className = "finish hidden";
   document.getElementById("time").innerHTML = "You did it in";
   document.getElementById("total").innerHTML = "Total number of moves:";
+  document.getElementsByClassName("new-game")[0].innerHTML = "Start";
   shuffleArray(images);
   placeCards();
   counter = 0;

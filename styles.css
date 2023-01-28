@@ -98,14 +98,15 @@ td {
   height: 120px;
   width: 150px;
   background-image: url("assets/wood-background.jpg");
-  min-width: 150px;
-  min-height: 120px;
+  min-width: 120px;
+  min-height: 150px;
 }
 
 .card {
   /* border: 1px solid #f1f1f1; */
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   height: 120px;
+  width: 150px;
 }
 
 .hidden,

@@ -31,6 +31,7 @@ let images;
 let startTime;
 
 const selectValue = () => {
+  reset();
   arrLength = +document.getElementById("select_id").value;
   // alert(typeof arrLength + " " + arrLength);
   totalNumberOfCards = arrLength;
@@ -106,10 +107,14 @@ const turn = () => {
   console.log(new Date());
 
   for (let i = 0; i < cards.length; i++) {
+    // console.log("i: " + i);
     cards[i].onclick = function () {
-      if (i === 0) {
-        document.getElementsByClassName("new-game")[0].innerHTML = "Restart";
-      }
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+
+      // if (i === 0) {
+      //   document.getElementsByClassName("new-game")[0].innerHTML = "Restart";
+      // }
       let frontElement = cards[i].getElementsByClassName("card-front")[0];
       console.log("className: " + frontElement.className);
       if (frontElement.className === "card-front removed") {
@@ -117,9 +122,6 @@ const turn = () => {
       }
       if (counter < 2) {
         console.log(" was clicked");
-        let backElement = cards[i].getElementsByClassName("card-back")[0];
-        backElement.className = "card-back hidden";
-        frontElement.className = "card-front visible";
         if (counter === 0) {
           card1 = frontElement.getElementsByTagName("img")[0].src;
           console.log(card1);
@@ -130,7 +132,13 @@ const turn = () => {
           console.log(card2);
           cardId2 = this.id;
           console.log(cardId2);
+          if (cardId1 === cardId2) {
+            return;
+          }
         }
+        let backElement = cards[i].getElementsByClassName("card-back")[0];
+        backElement.className = "card-back hidden";
+        frontElement.className = "card-front visible";
         counter++;
         console.log(counter);
       }
@@ -140,7 +148,7 @@ const turn = () => {
         console.log(cardEl1);
         console.log(cardEl2);
         if (card1 === card2) {
-          setTimeout(() => {
+          var timeout1 = setTimeout(() => {
             cardEl1.getElementsByTagName("div")[1].className =
               "card-front removed";
             cardEl2.getElementsByTagName("div")[1].className =
@@ -150,7 +158,7 @@ const turn = () => {
             finish();
           }, 500);
         } else {
-          setTimeout(() => {
+          var timeout2 = setTimeout(() => {
             cardEl1.getElementsByTagName("div")[1].className =
               "card-front hidden";
             cardEl2.getElementsByTagName("div")[1].className =
@@ -190,7 +198,7 @@ const reset = () => {
   document.getElementsByClassName("finish")[0].className = "finish hidden";
   document.getElementById("time").innerHTML = "You did it in";
   document.getElementById("total").innerHTML = "Total number of moves:";
-  document.getElementsByClassName("new-game")[0].innerHTML = "Start";
+  // document.getElementsByClassName("new-game")[0].innerHTML = "Start";
   shuffleArray(images);
   placeCards();
   console.log(images);

@@ -144,7 +144,7 @@ const turn = () => {
             totalNumberOfCards -= 2;
             console.log("total number of cards: " + totalNumberOfCards);
             finish();
-          }, 1000);
+          }, 700);
         } else {
           setTimeout(() => {
             cardEl1.getElementsByTagName("div")[1].className =
@@ -155,7 +155,7 @@ const turn = () => {
               "card-back visible";
             cardEl2.getElementsByTagName("div")[0].className =
               "card-back visible";
-          }, 1000);
+          }, 700);
         }
         counter = 0;
         card1 = "";

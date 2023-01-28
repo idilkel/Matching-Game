@@ -110,12 +110,16 @@ const turn = () => {
       if (i === 0) {
         document.getElementsByClassName("new-game")[0].innerHTML = "Restart";
       }
+      let frontElement = cards[i].getElementsByClassName("card-front")[0];
+      console.log("className: " + frontElement.className);
+      if (frontElement.className === "card-front removed") {
+        return;
+      }
       if (counter < 2) {
         console.log(" was clicked");
         let backElement = cards[i].getElementsByClassName("card-back")[0];
         backElement.className = "card-back hidden";
-        let frontElement = cards[i].getElementsByClassName("card-front")[0];
-        frontElement.className = "card-back visible";
+        frontElement.className = "card-front visible";
         if (counter === 0) {
           card1 = frontElement.getElementsByTagName("img")[0].src;
           console.log(card1);
@@ -138,13 +142,13 @@ const turn = () => {
         if (card1 === card2) {
           setTimeout(() => {
             cardEl1.getElementsByTagName("div")[1].className =
-              "card-front hidden";
+              "card-front removed";
             cardEl2.getElementsByTagName("div")[1].className =
-              "card-front hidden";
+              "card-front removed";
             totalNumberOfCards -= 2;
             console.log("total number of cards: " + totalNumberOfCards);
             finish();
-          }, 700);
+          }, 500);
         } else {
           setTimeout(() => {
             cardEl1.getElementsByTagName("div")[1].className =
@@ -155,7 +159,7 @@ const turn = () => {
               "card-back visible";
             cardEl2.getElementsByTagName("div")[0].className =
               "card-back visible";
-          }, 700);
+          }, 500);
         }
         counter = 0;
         card1 = "";

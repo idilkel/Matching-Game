@@ -98,6 +98,8 @@ td {
   height: 120px;
   width: 150px;
   background-image: url("assets/wood-background.jpg");
+  min-width: 150px;
+  min-height: 120px;
 }
 
 .card {
@@ -106,7 +108,8 @@ td {
   height: 120px;
 }
 
-.hidden {
+.hidden,
+.removed {
   visibility: hidden;
   display: none;
 }

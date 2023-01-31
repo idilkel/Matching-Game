@@ -287,7 +287,7 @@ button:hover {
 
   .board {
     grid-column: 1/13;
-    grid-row: 3/12;
+    grid-row: 4/12;
     height: 70%;
     margin: 5px;
     border: none;
@@ -318,12 +318,12 @@ button:hover {
 
   .new-game-container {
     grid-column: 6/8;
-    grid-row: 10/11;
+    grid-row: 11/12;
   }
 
   #select-container {
     grid-column: 10/11;
-    grid-row: 10/11;
+    grid-row: 11/12;
   }
 
   .finish {

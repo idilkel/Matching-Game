@@ -108,7 +108,7 @@ const turn = () => {
 
   for (let i = 0; i < cards.length; i++) {
     // console.log("i: " + i);
-    cards[i].onclick = function () {
+    cards[i].onmousemove = function () {
       clearTimeout(timeout1);
       clearTimeout(timeout2);
 

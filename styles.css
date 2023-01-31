@@ -284,6 +284,7 @@ button:hover {
     grid-row: 3/12;
     height: 70%;
     margin: 5px;
+    border: none;
   }
 
   td,
@@ -317,6 +318,11 @@ button:hover {
   #select-container {
     grid-column: 10/11;
     grid-row: 10/11;
+  }
+
+  .finish {
+    grid-column: 3/11;
+    grid-row: 3/10;
   }
 
   #table-24cards td,

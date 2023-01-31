@@ -98,8 +98,8 @@ td {
   height: 120px;
   width: 150px;
   background-image: url("assets/wood-background.jpg");
-  min-width: 120px;
   min-height: 150px;
+  min-width: 120px;
 }
 
 .card {
@@ -207,21 +207,24 @@ button:hover {
   align-items: center;
 }
 
-@media only screen and (max-width: 1005px) {
+@media only screen and (max-width: 1005px), screen and (max-height: 807px) {
   .header {
     grid-column: 2/12;
-    grid-row: 2/3;
+    grid-row: 1/2;
+    margin: 0;
   }
 
   .board {
     grid-column: 2/12;
-    grid-row: 4/10;
+    grid-row: 2/12;
+    border: none;
   }
 
   td {
     min-height: 50px;
     min-width: 50px;
     padding: 2px;
+    height: 100%;
   }
 
   .card-back img,
@@ -234,9 +237,9 @@ button:hover {
   }
 
   .new-game-container {
-    grid-column: 6/8;
-    grid-row: 10/11;
-    margin-top: 10px;
+    grid-column: 12/13;
+    grid-row: 9/10;
+    margin-left: 2px;
   }
 
   table {
@@ -247,13 +250,17 @@ button:hover {
   }
 
   #select-container {
-    grid-column: 9/10;
-    grid-row: 10/11;
-    margin: 20px;
+    grid-column: 12/113;
+    grid-row: 5/6;
+    margin: 15px;
   }
 
   #number-of-cards {
     padding: 3px;
+  }
+
+  .credentials {
+    padding-bottom: 5px;
   }
 
   #table-24cards td,
@@ -273,7 +280,7 @@ button:hover {
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 490px) {
   .header {
     grid-column: 2/12;
     grid-row: 2/3;
